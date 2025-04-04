@@ -32,6 +32,7 @@ app.use((err, req, res, next) => {
   res.json({
     message: err.message,
     status: 'OK',
+    stack: process.env.NODE_ENV === 'production' ? '🤷‍♀️' : err.stack;
     
   });
 });
