@@ -40,6 +40,9 @@ app.use((err, req, res, next) => {
 //Listening for DB Operations
 const DB = mongoose.connection;
 
+DB.once('open', () => {
+  console.log('Connected to DB');
+});
 
 
 
