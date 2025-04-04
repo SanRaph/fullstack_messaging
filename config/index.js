@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DB_URI = "mongod://localhost/test";
+const DB_URI = "mongodb://127.0.0.1:27017/my_database";
 
 const option = {
     useNewUrlParser: true,
