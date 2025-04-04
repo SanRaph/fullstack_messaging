@@ -44,6 +44,10 @@ DB.once('open', () => {
   console.log('Connected to DB');
 });
 
+DB.on('error', () => {
+  console.log('Error in connecting to DB');
+});
+
 
 
 module.exports = app;
