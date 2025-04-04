@@ -1,7 +1,6 @@
-
+    const User = require('../models/index');
     registerUser = (req, res) => {
-      // TODO: complete
-      res.redirect('register');
+      
     }
   
     loginUser = (req, res) => {
