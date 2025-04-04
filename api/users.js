@@ -8,5 +8,6 @@ router.get('/user-test', function(req, res, next) {
 });
 
 router.post('/register', services.registerUser);
+router.post('/login', services.loginUser);
 
 module.exports = router;
