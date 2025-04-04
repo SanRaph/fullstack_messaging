@@ -9,3 +9,5 @@ const option = {
 };
 
 mongoose.connect(DB_URI, option);
+
+module.exports = mongoose;
