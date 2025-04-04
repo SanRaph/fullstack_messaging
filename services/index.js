@@ -25,11 +25,15 @@
         }
     }
   
-    loginUser = (req, res) => {
-      // TODO: complete
-      res.redirect('login');
+    loginUser = async (req, res, next) => {
+        try {
+            const { password, username } = req.body;
+        } catch (error) {
+           
+        }
+
     }
-  
+
     logoutUser = (req, res) => {
       // TODO: complete
       res.redirect('login');
