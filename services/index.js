@@ -14,7 +14,11 @@
       res.redirect('login');
     }
 
-    module.exports = {};
+    module.exports = {
+        registerUser,
+        loginUser,
+        logout,
+    };
   
   
 
