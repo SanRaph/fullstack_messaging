@@ -1,5 +1,9 @@
     const User = require('../models/index');
-    const bcrypt = require('bcrypt')
+    const bcrypt = require('bcrypt');
+    const jwt = require('jsonwebtoken');
+
+    const JWT_SECRET = 'jssjjsjjIFIFI834';
+
     registerUser = async (req, res, next) => {
         try {
             const { username, password, address} = req.body;
@@ -29,10 +33,13 @@
     }
   
     loginUser = async (req, res, next) => {
-        const { username } = req.body;
+        const { username, password } = req.body;
         try {
           const registeredUser = User.findOne({username}).select('+password');
-          res.json(registeredUser.username)
+          if( bcrypt.compare (password, registeredUser.password)){
+            const token = jwt.sign({id: registeredUser._id}, JWT_SECRET);
+            res.json();
+          }
         } catch (error) {
             next(error);
             res.status(404).send('Error Finding User');
