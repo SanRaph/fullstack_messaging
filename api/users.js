@@ -9,5 +9,5 @@ router.get('/user-test', function(req, res, next) {
 
 router.post('/register', services.registerUser);
 router.post('/login', services.loginUser);
-router.post('/change-password', );
+router.post('/change-password', services.changePassword);
 module.exports = router;
