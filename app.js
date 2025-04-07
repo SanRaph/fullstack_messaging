@@ -4,6 +4,7 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let mongoose = require('mongoose');
+let middlewares = require('../backend/middlewares/index')
 
 
 let indexRouter = require('./api/index');
