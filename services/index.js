@@ -3,11 +3,11 @@
     registerUser = async (req, res, next) => {
         try {
             const { username, password, address} = req.body;
-            const hashedPassword = bcrypt.hash(password, 10);
+            // if(password.length < 8) res.send('Password Too Short');
+            // if(username && username !== 'String') res.send('Invalid Username');
 
-           if(password.length < 8) res.send('Password Too Short');
-           if(username && username !== 'String') res.send('Invalid Username');
 
+           const hashedPassword = bcrypt.hash(password, 10);
            const createdUser = await new User({username, hashedPassword, address });
            createdUser.createdAt = new Date();
            createdUser.save();
