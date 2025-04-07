@@ -60,8 +60,9 @@
     }
 
     changePassword = (req, res) => {
-        // TODO: complete
-        res.send('password is changed');
+        const { } = req.body;
+        const token = req.headers.authorization.split('')[1];
+        
       }
 
     logoutUser = (req, res) => {
