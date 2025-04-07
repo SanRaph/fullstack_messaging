@@ -59,10 +59,18 @@
 
     }
 
-    changePassword = (req, res) => {
-        const { } = req.body;
-        const token = req.headers.authorization.split('')[1];
+    changePassword = async (req, res) => {
+        const { newPassword, password } = req.body;
+       try {
+        if(!user) return res.send('User Does Not Exist');
+        if(jwt.verify(password, JWT_SECRET)){
+            const user = User.findOne({password});
+        }
+       } catch (error) {
         
+       }
+
+
       }
 
     logoutUser = (req, res) => {
