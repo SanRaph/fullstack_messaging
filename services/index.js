@@ -59,6 +59,11 @@
 
     }
 
+    changePassword = (req, res) => {
+        // TODO: complete
+        res.send('password is changed');
+      }
+
     logoutUser = (req, res) => {
       // TODO: complete
       res.redirect('login');
