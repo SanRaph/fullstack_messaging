@@ -38,7 +38,6 @@
           const registeredUser = User.findOne({username}).select('+password');
           if( bcrypt.compare (password, registeredUser.password)){
             registeredUser.isAuth = true;
-            console.log(registeredUser)
             const token = jwt.sign({id: registeredUser._id}, JWT_SECRET);
             res.status(200);
             res.json({
