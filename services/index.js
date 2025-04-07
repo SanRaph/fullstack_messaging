@@ -29,8 +29,9 @@
     }
   
     loginUser = async (req, res, next) => {
+        const { password, username } = req.body;
         try {
-            const { password, username } = req.body;
+            User.findOne({});
         } catch (error) {
            
         }
