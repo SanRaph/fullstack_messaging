@@ -73,6 +73,7 @@
         registerUser,
         loginUser,
         logoutUser,
+        changePassword,
     };
   
   
