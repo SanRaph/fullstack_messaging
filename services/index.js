@@ -4,11 +4,14 @@
         try {
             const { username, password, address} = req.body;
             const hashedPassword = bcrypt.hash(password, 10);
-           if(password.length < 8){
-            res.send('Password Too Short');
-           }
-        
 
+           if(password.length < 8) res.send('Password Too Short');
+           if(username && username !== 'String') res.send('Invalid Username');
+
+           const createdUser = await new User({username, hashedPassword, address });
+           createdUser.createdAt = new Date();
+           createdUser.save();
+        
             res.status(200);
             res.json({
                 message: "User Created",
