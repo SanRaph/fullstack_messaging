@@ -43,6 +43,7 @@
                 message: 'Login Successfully',
                 status: 'OK',
                 token: token,
+                username: username,
             });
           }else{
             res.json({
