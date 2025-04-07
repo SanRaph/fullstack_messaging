@@ -40,9 +40,14 @@
             const token = jwt.sign({id: registeredUser._id}, JWT_SECRET);
             res.status(200);
             res.json({
-                message: 'Login successfully',
+                message: 'Login Successfully',
                 status: 'OK',
                 token: token,
+            });
+          }else{
+            res.json({
+                message: 'Invalid Credentials',
+                status: 'Not OK',
             });
           }
         } catch (error) {
