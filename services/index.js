@@ -62,9 +62,11 @@
     changePassword = async (req, res) => {
         const { newPassword, password } = req.body;
        try {
-        if(!user) return res.send('User Does Not Exist');
         if(jwt.verify(password, JWT_SECRET)){
             const user = User.findOne({password});
+            if(!user) return res.send('User Does Not Exist');
+            //TODO
+            User.updateOne({$set},{})
         }
        } catch (error) {
         
