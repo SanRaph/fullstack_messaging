@@ -4,9 +4,9 @@
         try {
             const { username, password, address} = req.body;
             const hashedPassword = bcrypt.hash(password, 10);
-            const createdUser = await new User({username, hashedPassword, address });
-            createdUser.createdAt = new Date();
-            createdUser.save();
+           if(password.length < 8){
+            res.send('Password Too Short');
+           }
         
 
             res.status(200);
