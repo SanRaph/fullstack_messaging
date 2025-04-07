@@ -29,11 +29,13 @@
     }
   
     loginUser = async (req, res, next) => {
-        const { password, username } = req.body;
+        const { username } = req.body;
         try {
-            User.findOne({});
+          const registeredUser = User.findOne({username}).select('+password');
+          res.json(registeredUser.username)
         } catch (error) {
-           
+            next(error);
+            res.status(404).send('Error Finding User');
         }
 
     }
