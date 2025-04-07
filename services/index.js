@@ -38,7 +38,12 @@
           const registeredUser = User.findOne({username}).select('+password');
           if( bcrypt.compare (password, registeredUser.password)){
             const token = jwt.sign({id: registeredUser._id}, JWT_SECRET);
-            res.json();
+            res.status(200);
+            res.json({
+                message: 'Login successfully',
+                status: 'OK',
+                token: token,
+            });
           }
         } catch (error) {
             next(error);
