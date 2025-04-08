@@ -65,7 +65,6 @@
         if(jwt.verify(password, JWT_SECRET)){
             const user = User.findOne({password});
             if(!user) return res.send('User Does Not Exist');
-            //TODO
             User.updateOne({$set},{})
         }
        } catch (error) {
