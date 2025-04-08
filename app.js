@@ -2,9 +2,11 @@ let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
+let cors = require('cors')
 let logger = require('morgan');
 let mongoose = require('mongoose');
 let middlewares = require('../backend/middlewares/index')
+
 
 
 let indexRouter = require('./api/index');
@@ -13,6 +15,7 @@ let usersRouter = require('./api/users');
 let app = express();
 
 app.use(logger('dev'));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
