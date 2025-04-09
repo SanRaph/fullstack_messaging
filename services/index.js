@@ -1,5 +1,6 @@
     const User = require('../models/index');
     const bcrypt = require('bcrypt');
+const { json } = require('express');
     const jwt = require('jsonwebtoken');
 
     const JWT_SECRET = 'jssjjsjjIFIFI834';
@@ -65,7 +66,11 @@
         const verifiedToken = jwt.verify(token, JWT_SECRET);
         const userID = verifiedToken._id;
 
-        cont 
+        const user = User.findOne({_id: userID});
+        if(!user) return json({message: 'User Not Found'});
+        const hashedPassword = bcrypt.hash(password, 10);
+        User.updateOne({_id: userID}, {$set: {password: hashedPassword}});
+        return json({message: 'Password Changed'});
 
 
       }
